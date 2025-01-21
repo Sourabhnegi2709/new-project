@@ -1,0 +1,116 @@
+<% layout("/layouts/boilerplate") %>
+
+<div class="row">
+  <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1 col-sm-12">
+    <h3 class="mt-4 mb-4">Create a New Listing</h3>
+
+    <form 
+      method="POST" 
+      action="/listings" 
+      enctype="multipart/form-data" 
+      class="needs-validation" 
+      novalidate
+    >
+      <!-- Title Input -->
+      <div class="mb-3">
+        <label for="title" class="form-label">Title</label>
+        <input
+          id="title"
+          name="listing[title]"
+          type="text"
+          placeholder="Enter the listing title"
+          class="form-control"
+          required
+          aria-describedby="titleHelp"
+        />
+        <div id="titleHelp" class="form-text text-muted">Provide a short and descriptive title.</div>
+        <div class="invalid-feedback">Please enter the title.</div>
+      </div>
+
+      <!-- Description Input -->
+      <div class="mb-3">
+        <label for="description" class="form-label">Description</label>
+        <textarea
+          id="description"
+          name="listing[description]"
+          placeholder="Enter a brief description"
+          class="form-control"
+          rows="4"
+          required
+          aria-describedby="descriptionHelp"
+        ></textarea>
+        <div id="descriptionHelp" class="form-text text-muted">Describe the features and highlights of the listing.</div>
+        <div class="invalid-feedback">Please enter a description.</div>
+      </div>
+
+      <!-- Image Upload -->
+      <div class="mb-3">
+        <label for="image" class="form-label">Upload Listing Image</label>
+        <input
+          id="image"
+          name="listing[image]"
+          type="file"
+          class="form-control"
+          aria-describedby="imageHelp"
+        />
+        <div id="imageHelp" class="form-text text-muted">Upload a high-quality image of the listing (optional).</div>
+      </div>
+
+      <!-- Price, Country, and Location -->
+      <div class="row g-3">
+        <!-- Price -->
+        <div class="col-md-4">
+          <label for="price" class="form-label">Price (₹)</label>
+          <input
+            id="price"
+            name="listing[price]"
+            type="number"
+            class="form-control"
+            placeholder="Enter price"
+            min="0"
+            step="0.01"
+            required
+            aria-describedby="priceHelp"
+          />
+          <div id="priceHelp" class="form-text text-muted">Specify the price in INR.</div>
+          <div class="invalid-feedback">Please enter a valid price.</div>
+        </div>
+
+        <!-- Country -->
+        <div class="col-md-4">
+          <label for="country" class="form-label">Country</label>
+          <input
+            id="country"
+            name="listing[country]"
+            type="text"
+            class="form-control"
+            placeholder="Enter country"
+            required
+            aria-describedby="countryHelp"
+          />
+          <div id="countryHelp" class="form-text text-muted">Enter the country where the listing is located.</div>
+          <div class="invalid-feedback">Please enter the country.</div>
+        </div>
+
+        <!-- Location -->
+        <div class="col-md-4">
+          <label for="location" class="form-label">Location</label>
+          <input
+            id="location"
+            name="listing[location]"
+            type="text"
+            class="form-control"
+            placeholder="Enter location"
+            required
+            aria-describedby="locationHelp"
+          />
+          <div id="locationHelp" class="form-text text-muted">Provide the exact location or area.</div>
+          <div class="invalid-feedback">Please enter the location.</div>
+        </div>
+      </div>
+
+      <!-- Submit Button -->
+      <button type="submit" class="btn btn-dark w-100 mt-4">Add Listing</button>
+    </form>
+  </div>
+</div>
