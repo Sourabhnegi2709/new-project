@@ -19,6 +19,9 @@ router
     wrapAsync(listingControllers.createRoute) // Async route handler
   );
 
+  router.get("/category/:category", wrapAsync(listingControllers.filterByCategory));
+
+
 
 // New Route
 router.get("/new", isLoggedIn, listingControllers.rendering);

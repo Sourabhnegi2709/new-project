@@ -93,27 +93,27 @@ passport.deserializeUser(User.deserializeUser());
 app.use((req, res, next) =>{
   res.locals.success = req.flash("success");
   res.locals.error = req.flash("error");
-  res.locals.currUser = req.user
+  res.locals.currUser = req.user || null;
   next();
 });
 
-app.get("/demoUser", async (req, res) => {
-  try {
-    const existingUser = await User.findOne({ email: "student@gmail.com" });
-    if (existingUser) {
-      return res.send(existingUser);
-    }
-    const fakeUser = new User({
-      email: "student@gmail.com",
-      username: "delta-student",
-    });
-    const registeredUser = await User.register(fakeUser, "helloworld");
-    res.send(registeredUser);
-  } catch (err) {
-    console.error(err);
-    res.status(500).send("Error creating demo user");
-  }
-});
+// app.get("/demoUser", async (req, res) => {
+//   try {
+//     const existingUser = await User.findOne({ email: "student@gmail.com" });
+//     if (existingUser) {
+//       return res.send(existingUser);
+//     }
+//     const fakeUser = new User({
+//       email: "student@gmail.com",
+//       username: "delta-student",
+//     });
+//     const registeredUser = await User.register(fakeUser, "helloworld");
+//     res.send(registeredUser);
+//   } catch (err) {
+//     console.error(err);
+//     res.status(500).send("Error creating demo user");
+//   }
+// });
 
 
 

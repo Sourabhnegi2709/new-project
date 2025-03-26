@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const { type } = require("os");
 const Schema = mongoose.Schema;
 
 const listingSchema = new Schema({
@@ -18,6 +19,9 @@ const listingSchema = new Schema({
   },
   price: Number,
   location: String,
+  category: {
+    type:String,
+  },
   country: String,
   reviews:[
     {

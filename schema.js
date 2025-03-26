@@ -11,6 +11,7 @@ module.exports.listingSchema = joi.object({
         price : joi.number().required().min(0),
         image : joi.string().allow("",null),
         location : joi.string().required(),
+        category: joi.string().valid("Trending", "Windmills", "Cabins", "Mountain", "Warehouse", "Castles", "Beach", "Snowpoint", "City").required(),
         country : joi.string().required(),
     }).required(),
 });

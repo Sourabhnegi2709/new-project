@@ -9,6 +9,13 @@ module.exports.rendering = (req, res) => {
   res.render("listings/new.ejs");
 }
 
+module.exports.filterByCategory = async (req, res) => {
+  const { category } = req.params;
+  const filteredListings = await Listing.find({ category: category });
+
+  res.render("listings/index.ejs", { allListings: filteredListings });
+};
+
 
 module.exports.showRoute =  async (req, res) => {
     let { id } = req.params
